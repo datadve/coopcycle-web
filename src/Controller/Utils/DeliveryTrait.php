@@ -56,7 +56,7 @@ trait DeliveryTrait
         $order->setShippingTimeRange($shippingTimeRange);
 
         if (null !== $user) {
-            $order->setCustomer($user);
+            $order->setCustomer($user->getCustomer());
         }
 
         $variant = $productVariantFactory->createForDelivery($delivery, $price);
