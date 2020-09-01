@@ -662,7 +662,7 @@ class FeatureContext implements Context, SnippetAcceptingContext, KernelAwareCon
         $order = $this->getContainer()->get('sylius.factory.order')
             ->createForRestaurant($restaurant);
 
-        $order->setCustomer($user);
+        $order->setCustomer($user->getCustomer());
 
         if (null === $shippedAt) {
             // FIXME Using next opening date makes results change randomly
@@ -871,7 +871,7 @@ class FeatureContext implements Context, SnippetAcceptingContext, KernelAwareCon
         $cart = $this->getContainer()->get('sylius.factory.order')
             ->createForRestaurant($restaurant);
 
-        $cart->setCustomer($user);
+        $cart->setCustomer($user->getCustomer());
 
         $this->getContainer()->get('sylius.manager.order')->persist($cart);
         $this->getContainer()->get('sylius.manager.order')->flush();
