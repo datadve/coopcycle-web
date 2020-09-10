@@ -2,6 +2,7 @@ import { createSelector } from 'reselect'
 import Moment from 'moment'
 import { extendMoment } from 'moment-range'
 import { filter, forEach, includes, intersectionWith, isEqual } from 'lodash'
+import { mapToColor } from 'coopcycle-frontend-js'
 
 const moment = extendMoment(Moment)
 
@@ -122,4 +123,9 @@ export const selectIsVisibleTask = createSelector(
 
     return true
   }
+)
+
+export const selectTasksWithColor = createSelector(
+  state => state.allTasks,
+  allTasks => mapToColor(allTasks)
 )

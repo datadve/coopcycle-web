@@ -5,8 +5,7 @@ import moment from 'moment'
 import { ContextMenuTrigger } from 'react-contextmenu'
 
 import { setCurrentTask, toggleTask, selectTask } from '../redux/actions'
-import { selectTasksWithColor } from 'coopcycle-frontend-js'
-import { selectIsVisibleTask } from '../redux/selectors'
+import { selectIsVisibleTask, selectTasksWithColor } from '../redux/selectors'
 import TaskEta from './TaskEta'
 
 moment.locale($('html').attr('lang'))
